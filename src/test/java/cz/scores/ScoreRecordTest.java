@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static java.util.Arrays.asList;
+import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -22,6 +23,7 @@ class ScoreRecordTest {
 
     private static Stream<Arguments> provideTestData() {
         return Stream.of(
+            Arguments.of(emptyList(), "", "No scores"),
             Arguments.of(singletonList(4), "4:1", "Only root element"),
             Arguments.of(asList(4, 4), "4:2", "Root element twice"),
             Arguments.of(asList(4, 2), "4:1, 2:1, ", "Root and left child"),

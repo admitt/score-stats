@@ -72,6 +72,9 @@ public class ScoreRecord {
     }
 
     static String createScoreCountString(int... scores) {
+        if (scores.length == 0) {
+            return "";
+        }
         int headScore = scores[0];
         Node head = new Node(new Value(headScore, 0));
         for (int score : scores) {
