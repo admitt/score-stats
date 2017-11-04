@@ -24,7 +24,8 @@ class ScoreRecordTest {
     private static Stream<Arguments> provideTestData() {
         return Stream.of(
             Arguments.of(singletonList(4), "4:1"),
-            Arguments.of(asList(4, 4), "4:2")
+            Arguments.of(asList(4, 4), "4:2"),
+            Arguments.of(asList(4, 2), "4:1, 2:1, ")
         );
     }
 }
