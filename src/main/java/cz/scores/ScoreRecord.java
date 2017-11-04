@@ -30,22 +30,22 @@ public class ScoreRecord {
         }
 
         void addChild(Node child) {
-            boolean less = child.value.value < value.value;
-            boolean more = child.value.value > value.value;
-            if (less) {
-                Optional<Node> leftChild = Optional.ofNullable(this.left);
-                if (!leftChild.isPresent()) {
-                    this.left = child;
-                }
-                leftChild.ifPresent(l -> l.addChild(child));
-            } else if (more) {
-                Optional<Node> rightChild = Optional.ofNullable(this.right);
-                if (!rightChild.isPresent()) {
-                    this.right = child;
-                }
-                rightChild.ifPresent(l -> l.addChild(child));
+            int childValue = child.value.value;
+            int myValue = this.value.value;
+            if (childValue == myValue) {
+                this.value = this.value.increment();
+                return;
+            }
+            boolean isChildValueLess = childValue < myValue;
+            Optional<Node> childOptional = Optional.ofNullable(isChildValueLess ? this.left : this.right);
+            if (childOptional.isPresent()) {
+                childOptional.get().addChild(child);
+                return;
+            }
+            if (isChildValueLess) {
+                this.left = child;
             } else {
-                value = value.increment();
+                this.right = child;
             }
         }
 
