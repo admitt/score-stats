@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cz.example</groupId>
-    <artifactId>demo</artifactId>
+    <groupId>cz.scores</groupId>
+    <artifactId>scores</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <build>
         <plugins>
@@ -18,10 +18,9 @@
             </plugin>
         </plugins>
     </build>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
-    <name>demo</name>
-    <description>Demo project for Spring Boot</description>
+    <name>Scores</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
