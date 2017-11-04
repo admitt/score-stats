@@ -12,13 +12,13 @@ import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ScoreRecordTest {
+class ScoreStatsTest {
 
     @ParameterizedTest(name = "{2}")
     @MethodSource("provideTestData")
     void createScoreCountString(List<Integer> scores, String expectedResult, String message) {
         int[] scoresArray = scores.stream().mapToInt(s -> s).toArray();
-        assertEquals(expectedResult, ScoreRecord.createScoreCountString(scoresArray), message);
+        assertEquals(expectedResult, ScoreStats.createScoreCountString(scoresArray), message);
     }
 
     private static Stream<Arguments> provideTestData() {
